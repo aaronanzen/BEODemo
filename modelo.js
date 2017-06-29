@@ -241,8 +241,8 @@ const consultaContrato  ={
 }
 
 const consultaContratoerror  ={
-     "muestraContrato": false,
-      "responseStatus": 230,
+     "muestraContrato": true,
+      "responseStatus": 200,
       "responseError": ""
    
 }
