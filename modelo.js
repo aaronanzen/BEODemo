@@ -1,314 +1,122 @@
 'use strict';
 
-
-
-
-const consultaPerfiles = {
-	"facultadesSimples":["MVN_MNU_OPCION1", "MVN_MNU_OPCION2","MVN_MNU_OPCION3"],
-	"responseStatus": 0,
-	"responseError": ""
-}
-
-
-
- const bloqueoOTP = {
-"codigoRespuesta": 21,
-"descRespuesta": "Token no existe"
-}
-
-const activacionOTP = {
-"codigoRespuesta": 0,
-"descRespuesta": "OK"
-}
-
-
-const listarTokensOTP = {
-"listTokens": [{
-"usuario": 1234567890,
-"tokenSerial": "7121804170B32HOSTVER",
-"nombreUsuario": "SAUL PEREZ SANCHEZ",
-"fechaAlta": "06-06-2017T08:20:13",
-"tokenStatus": "f"
-}, 
+const generarToken = 
 {
-"usuario": 9876543210,
-"tokenSerial": "7121804170B32HOSTVER",
-"nombreUsuario": "RAUL PEREZ SANCHEZ",
-"fechaAlta": "06-06-2017T08:20:13",
-"tokenStatus": "t"
+    "access_token": "J9ZERxjQdJ05REgpaRGjadzYgnhpUL+NjrIDfLNkmdltzGH8MxvsRzIkTVc02nFV"
 }
 
+
+const consultarMedicamento = 
+{
+    "existencia": 97,
+    "insumo": {
+        "cantidad": null,
+        "clave": "010000105001",
+        "clave_medicamento": "010000105001",
+        "clave_presupuestal": null,
+        "dosis": null,
+        "frecuencia": null,
+        "descripcion": "INSULINA HUMANA SUSPENSION INYECTABLE ACCION INTERMEDIA NPH CADA ml CONTIENE: INSULINA HUMANA ISOFANA (ORIGEN ADN RECOMBINANTE) 100 UI o INSULINA ZINC ISOFANA HUMANA (ORIGEN ADN RECOMBINANTE) 100 UI. ENVASE CON UN FRASCO AMPULA CON 10 ml.",
+        "esAntibiotico": false,
+        "cantidad_maxima": 3,
+        "cantidad_minima": 0,
+        "dias": 25,
+        "validaCantidadMax": "La cantidad m&#225;xima permitida para el medicamento (010000105001) no debe ser mayor a 3",
+        "validaDiasMin": "El medicamento (010000105001), no puede ser prescrito antes de 25 d&#237;as",
+        "maxExcedido": "La cantidad de la clave: (010000105001) excedi&#243; el m&#225;ximo de 3,cantidad ingresada: ",
+        "minExcedido": "La cantidad de la clave: (010000105001) excedi&#243; el m&#237;nimo de 0,cantidad ingresada: ",
+        "alertaMaxCantMinDia": "Con fundamento en las disposiciones referidas en el oficio circular N&#176; 120.121/099, DA/245, DM/010, DTED/052 DD/153 y CHR/017 de fecha 25 de enero de 2016, se est&#225;n excediendo los siguientes valores: ",
+        "alertaMaxCantMinDia2": "Esta receta requiere autorizaci&#243;n por &quot;Asistentes de la Direcci&#243;n&quot; y/o el &quot;Responsable designado&quot; &#191;Desea continuar? "
+    },
+    "mensaje": null,
+    "tipo": "M"
+}
+
+const registrarReceta = 
+[
+    {
+        "derechoHabiente": {
+            "nombre": "CARMEN ILEANA                           ",
+            "ape_pat": "CID                                     ",
+            "ape_mat": "ZANABRIA                                ",
+            "curp": "ZASI650607MDFNNL03",
+            "expediente": "CIZC900626/60",
+            "num_issste": "8832818",
+            "id_indirecto": "9815501",
+            "rfc": "CIZC900626   ",
+            "edad": null,
+            "sexo": null
+        },
+        "estatus": "Pendiente de surtir",
+        "fecha_emision": "15 Mar 2018 21:40:42 GMT",
+        "folio": "18033622730422030010R",
+        "id_receta_siam": 156417560,
+        "respuestaCodigo": "0",
+        "respuestaMensaje": null,
+        "surtir_hasta": "20 Mar 2018 06:00:00 GMT",
+        "movimientos": [
+            {
+                "cantidad": 3,
+                "negado": 0,
+                "fecha_surtimiento": "15 Mar 2018 21:40:42 GMT",
+                "clave": "010000270700"
+            },
+            {
+                "cantidad": 1,
+                "negado": 1,
+                "fecha_surtimiento": "15 Mar 2018 21:40:42 GMT",
+                "clave": "010000211100"
+            }
+        ]
+    },
+    {
+        "derechoHabiente": {
+            "nombre": "CARMEN ILEANA                           ",
+            "ape_pat": "CID                                     ",
+            "ape_mat": "ZANABRIA                                ",
+            "curp": "ZASI650607MDFNNL03",
+            "expediente": "CIZC900626/60",
+            "num_issste": "8832818",
+            "id_indirecto": "9815501",
+            "rfc": "CIZC900626   ",
+            "edad": null,
+            "sexo": null
+        },
+        "estatus": "Pendiente de surtir",
+        "fecha_emision": "15 Mar 2018 21:40:45 GMT",
+        "folio": "18033622730422030012R",
+        "id_receta_siam": 156417561,
+        "respuestaCodigo": "0",
+        "respuestaMensaje": null,
+        "surtir_hasta": "20 Mar 2018 06:00:00 GMT",
+        "movimientos": [
+            {
+                "cantidad": 3,
+                "negado": 0,
+                "fecha_surtimiento": "15 Mar 2018 21:40:45 GMT",
+                "clave": "010000044200"
+            }
+        ]
+    }
 ]
 
-,
-"responseStatus": 200,
-"responseError": ""
+const cancelarReceta = {
+    "derechoHabiente": null,
+    "estatus": null,
+    "fecha_emision": null,
+    "folio": null,
+    "id_receta_siam": null,
+    "respuestaCodigo": "0",
+    "respuestaMensaje": "Eliminada: Mar 15 2018  3:19PM, Justificacion: Cancelacion de prueba",
+    "surtir_hasta": null,
+    "movimientos": null
 }
 
 
-const autentificacion  = {
-    "fechaUltimoAcceso": 20170612120212,
-    "nombreRazonSocial": "Empresa Mexicana de Autopartes A.S",
-    "medioAcceso": "telefono",
-    "mail": "edwind@multiva.com",
-    
-    "consultaServiciosContratados": {
-        
-        "listaServicios": [
-            {
-                "contratado": true,
-                "nombre": "MULTITESORERIA"
-            },
-            {
-                "contratado": true,
-                "nombre": "PAGO DE NOMINA"
-            }
-        ],
-      
-    },
-    "nombreUsuario": "edwind ramirez perez",
-    "listaTelefonos": {
-        "cvePais": 52,
-        "tipoTelefono": "celular",
-        "codArea": 55,
-        "telefono": "5529017222"
-    },
-    "responseStatus": 200,
-    "responseError": "",
-   
-}
-
-
-
-const login  =
-{
-    "nombreRazonSocial": "Empresa Mexicana de Autopartes A.S",
-    "medioAcceso": null,
-    "mail": null,
-    "responseError": "",
-    "consultaServiciosContratados": {
-        "responseError": "",
-        "listaServicios": [
-            {
-                "contratado": true,
-                "nombre": "MULTITESORERIA"
-            },
-            {
-                "contratado": true,
-                "nombre": "PAGO DE NOMINA"
-            }
-        ],
-        "responseStatus": 200
-    },
-    "nombreUsuario": null,
-    "listaTelefonos": {
-        "cvePais": 52,
-        "tipoTelefono": "celular",
-        "codArea": 55,
-        "telefono": "5529017222"
-    },
-    "responseStatus": 200,
-    "fechaUltimoAcceso": null
-}
-
-const errorServicio  = 
-  {
- 
-  "CodigoRespuesta": 234,
-  "DescRespuesta": "Error en validar el contrato"
-  }
-
-
-const Validaotp  = 
-  {
-  "Antiphishing": 989999,
-  "CodigoRespuesta": 0,
-  "DescRespuesta": "Usuario correcto y token correcto"
-  }
-
-const validacontrato  = 
-  {
-    "CodigoRespuesta": 0
-  }
-
-const  envioNotificaciones  = 
-  {
-	"responseStatus": "200",
-	"responseError": ""
-  } 
-
-const  cambioContrasena  = {
-	"listCambioContrasena": {
-		"codigo": 0,
-		"mensaje": ""
-	},
-	"responseStatus": "200",
-	"responseError": ""
-}
-
-const consultaCuentasAgregadasCliente = 
-	{
-	"listCuentasCliente": [{
-		"numeroDeCuenta": "",
-		"idProducto": "",
-		"descripcionProducto": "",
-		"divisa": "",
-		"saldo": 1532,
-		"idSucursal": 124,
-		"nombreSucursal": ""
-	}, {
-		"numeroDeCuenta": "",
-		"idProducto": "",
-		"descripcionProducto": "",
-		"divisa": "",
-		"saldo": 1532,
-		"idSucursal": 124,
-		"nombreSucursal": ""
-	}],
-              "listCreditosCliente": [{
-		"numeroDeCuenta": "",
-		"idProducto": "",
-		"descripcionProducto": "",
-		"divisa": "",
-		"saldo": 1532,
-		"idSucursal": 124,
-		"nombreSucursal": ""
-	}, {
-		"numeroDeCuenta": "",
-		"idProducto": "",
-		"descripcionProducto": "",
-		"divisa": "",
-		"saldo": 1532,
-		"idSucursal": 124,
-		"nombreSucursal": ""
-	}],
-    "listInversionesCliente": [{
-		"numeroDeCuenta": "",
-		"idProducto": "",
-		"descripcionProducto": "",
-		"divisa": "",
-		"saldo": 1532,
-		"idSucursal": 124,
-		"nombreSucursal": ""
-	}, {
-		"numeroDeCuenta": "",
-		"idProducto": "",
-		"descripcionProducto": "",
-		"divisa": "",
-		"saldo": 1532,
-		"idSucursal": 124,
-		"nombreSucursal": ""
-	}],
-	"responseStatus": "200",
-	"responseError": ""
-}
-	
-const consultaProductosContratados  = 
-{
-	"listaProductos": [{
-			"nombre": "CUENTA DE CHEQUES",
-			"idProducto": "CHQ"
-		},
-		{
-			"nombre": "TARJETA DE CREDITO",
-			"idProducto": "TDC"
-		}
-	],
-	"responseStatus": 200,
-	"responseError": ""
-}
-
-const consultaServiciosContratado = 
-{
-	"listaServicios": [{
-			"nombre": "MULTITESORERIA",
-			"contratado": true
-		},
-		{
-			"nombre": "PAGO DE NOMINA",
-			"contratado": true
-		}
-	],
-	"responseStatus": 200,
-	"responseError": ""
-}
-
-const consultaContrato  ={
-     "muestraContrato": true,
-      "responseStatus": 200,
-      "responseError": ""
-   
-}
-
-const consultaContratoerror  ={
-     "muestraContrato": true,
-      "responseStatus": 200,
-      "responseError": ""
-   
-}
-
-
-const consultaDatosCliente = 
- {
-	"numCliente": "123454354545",
-	"nombre": "Empresa Mexicana de Autopartes A.S",
-	"listaDirecciones": [{
-		"direccion": "Naucalpan #12 colonia maravillas",
-		"poblacion": "Estado de Mexico",
-		"ciudad": "Mexico",
-		"estado": "Estado de Mexico",
-		"cp": "15420",
-		"tipoDireccion": "1"
-	}],
-	"rfc": "DEGA880407HFLNR01",
-	"listaTelefonos": [{
-      "cvePais": 52,		 
- 	  	"codArea": 55,
-			"telefono": "5529017222",
-			"tipoTelefono": "celular"
-     
-		},{
-       "cvePais": 52,		 
- 	  	"codArea": 55,
-			"telefono": "5529017223",
-			"tipoTelefono": "celular"
-		},{
-       "cvePais": 52,		 
- 	  	"codArea": 55,
-			"telefono": "5529017224",
-			"tipoTelefono": "celular"
-		},
-	
-	],
-	"listaEmails": [{
-		"mail": "edwin@multiva.com",
-		"activo": true,
-    "tipoEmail" : "empresa"
-	}],
-	"tipoPersona": "moral",
-	"estatus": "a",
-	"sucursal": "313",
-	"vip": "1",
-	"responseStatus": 200,
-	"responseError": ""
-}
 
 module.exports = {
-  consultaDatosCliente,
-  consultaServiciosContratado,
-  consultaProductosContratados,
-  consultaCuentasAgregadasCliente,
-  cambioContrasena,
-  envioNotificaciones,
-  validacontrato,
-  Validaotp,
-  login,
-  autentificacion,
-  consultaContrato,
-  errorServicio,
-  listarTokensOTP,
-  activacionOTP,
-  bloqueoOTP,
-  consultaContratoerror,
-  consultaPerfiles
+	generarToken,
+	consultarMedicamento,
+	registrarReceta,
+	cancelarReceta
 }
